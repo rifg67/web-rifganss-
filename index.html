@@ -6,6 +6,7 @@
     <title>RIFGANSS Store - VPN Premium & Kuota XL Unlimited</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Reset CSS */
         * {
             margin: 0;
             padding: 0;
@@ -13,6 +14,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
+        /* Styling untuk GitHub Pages */
         body {
             background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
             background-size: 400% 400%;
@@ -277,13 +279,17 @@
             color: #ffcc00;
         }
         
+        /* Responsive fixes untuk GitHub Pages */
         @media (max-width: 768px) {
             .price-table {
                 font-size: 0.9em;
+                display: block;
+                overflow-x: auto;
             }
             
             .price-table th, .price-table td {
                 padding: 8px 5px;
+                min-width: 80px;
             }
             
             .order-btn {
@@ -293,6 +299,10 @@
             
             h1 {
                 font-size: 2em;
+            }
+            
+            .product-section {
+                padding: 15px;
             }
         }
     </style>
@@ -342,6 +352,227 @@
                             <i class="fab fa-whatsapp"></i> Order
                         </button>
                     </td>
+                </tr>
+                <tr>
+                    <td>15 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 4.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '15 Hari', '1 HP', '4000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 7.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '15 Hari', '2 HP', '7000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 5.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '20 Hari', '1 HP', '5000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 8.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '20 Hari', '2 HP', '8000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>30 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 7.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '30 Hari', '1 HP', '7000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>30 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 12.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '30 Hari', '2 HP', '12000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Server ID BIZNET 🇲🇨</h3>
+            <table class="price-table">
+                <tr>
+                    <th>Masa Aktif</th>
+                    <th>Perangkat</th>
+                    <th>Harga</th>
+                    <th>Order</th>
+                </tr>
+                <tr>
+                    <td>7 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 3.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '7 Hari', '1 HP', '3000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 5.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '7 Hari', '2 HP', '5000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 6.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '15 Hari', '1 HP', '6000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 8.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '15 Hari', '2 HP', '8000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 8.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '20 Hari', '1 HP', '8000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 9.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '20 Hari', '2 HP', '9000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>30 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 10.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '30 Hari', '1 HP', '10000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>30 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 15.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '30 Hari', '2 HP', '15000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="highlight">
+                <h3>KELEBIHAN MEMBELI VPN PREMIUM:</h3>
+                <ul class="benefits">
+                    <li>Bisa Trial Terlebih Dahulu</li>
+                    <li>Server Jarang Terjadi Eror</li>
+                    <li>Support Vc/Tlpn</li>
+                    <li>Speed stabil</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-section">
+            <h2>READY DOR KUOTA XL UNLIMITED TURBO</h2>
+            <p><strong>Ready XL Unlimited Turbo Vidio 33.000 + config 38.000, limit: 150GB++</strong></p>
+            
+            <div class="cta">
+                <a href="https://wa.me/6283854965145?text=Halo,%20saya%20mau%20order%20Kuota%20XL%20Unlimited%20Turbo" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Order Kuota XL Unlimited Turbo
+                </a>
+            </div>
+        </div>
+
+        <div class="product-section">
+            <h2>Metode Pembayaran</h2>
+            <div class="payment-methods">
+                <div class="payment-method">DANA</div>
+                <div class="payment-method">GOPAY</div>
+                <div class="payment-method">QRIS ALL PAYMENT</div>
+            </div>
+            
+            <div class="cta">
+                <a href="https://wa.me/6283854965145" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Hubungi Kami via WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 RIFGANSS Store - Tokoh Murah & Berkualitas
+    </footer>
+
+    <script>
+        // Fungsi untuk tombol order WhatsApp
+        function orderProduct(server, duration, device, price) {
+            const message = `Halo RIFGANSS Store, saya mau order:
+            
+- Server: ${server}
+- Masa Aktif: ${duration}
+- Perangkat: ${device}
+- Harga: Rp ${price}
+
+Bisa diproses sekarang?`;
+            
+            const whatsappUrl = `https://wa.me/6283854965145?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        
+        // Fungsi untuk memastikan kompatibilitas GitHub Pages
+        document.addEventListener('DOMContentLoaded', function() {
+            // Perbaikan untuk masalah rendering GitHub Pages
+            if (window.location.hostname.includes('github.io')) {
+                document.body.classList.add('github-pages');
+            }
+        });
+    </script>
+</body>
+                        </html>d>
                 </tr>
                 <tr>
                     <td>15 Hari</td>
