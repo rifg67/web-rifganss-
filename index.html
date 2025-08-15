@@ -1,40 +1,566 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RIFGANSS Store - VPN Premium & Kuota XL Unlimited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
+        
         header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 25px;
             text-align: center;
-            border-radius: 5px 5px 0 0;
-            margin-bottom: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid #ffcc00;
+            position: relative;
+            overflow: hidden;
         }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(179, 0, 0, 0.1), rgba(77, 0, 0, 0.1));
+            z-index: -1;
+        }
+        
         h1 {
-            margin: 0;
-            font-size: 2.2em;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ffcc00;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+            animation: glow 2s ease-in-out infinite alternate;
         }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60000; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #ff4d4d, 0 0 30px #ff4d4d; }
+        }
+        
         .tagline {
             font-style: italic;
-            margin-top: 5px;
+            margin: 15px 0;
+            color: #ffcc00;
+            font-size: 1.1em;
         }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            display: inline-block;
+        }
+        
+        .wa-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #25D366;
+            font-weight: bold;
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .wa-link:hover {
+            background: #25D366;
+            color: white;
+            transform: scale(1.05);
+        }
+        
         .product-section {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            animation: fadeIn 1s ease-out;
+            border: 1px solid #ff9900;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: #ffcc00;
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        
+        h3 {
+            color: #4d9eff;
+            margin: 25px 0 15px;
+            text-align: center;
+            position: relative;
+        }
+        
+        h3::before, h3::after {
+            content: "•";
+            margin: 0 10px;
+            color: #ff9900;
+        }
+        
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+        
+        .price-table th, .price-table td {
+            border: 1px solid #ffcc00;
+            padding: 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .price-table th {
+            background-color: rgba(255, 204, 0, 0.2);
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        
+        .price-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        .price-table tr:hover {
+            background-color: rgba(255, 204, 0, 0.1);
+        }
+        
+        .order-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .order-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #128C7E, #25D366);
+        }
+        
+        .highlight {
+            background: linear-gradient(to right, rgba(179, 0, 0, 0.5), rgba(77, 0, 0, 0.5));
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #ff3333;
+        }
+        
+        .benefits {
+            list-style-type: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        
+        .benefits li {
+            padding: 10px 0;
+            position: relative;
+            padding-left: 30px;
+            font-size: 1.1em;
+        }
+        
+        .benefits li::before {
+            content: "✓";
+            color: #4dff4d;
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+            text-shadow: 0 0 5px #00ff00;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            background: linear-gradient(135deg, #4d79ff, #1a53ff);
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            min-width: 120px;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+        
+        .payment-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+        }
+        
+        .cta {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            color: #ffcc00;
+        }
+        
+        @media (max-width: 768px) {
+            .price-table {
+                font-size: 0.9em;
+            }
+            
+            .price-table th, .price-table td {
+                padding: 8px 5px;
+            }
+            
+            .order-btn {
+                padding: 6px 10px;
+                font-size: 0.85em;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>RIFGANSS STORE</h1>
+            <div class="tagline">Murah & Berkualitas - Bergaransi Full 30 Hari</div>
+            
+            <div class="contact-info">
+                <p>Order langsung via WhatsApp:</p>
+                <a href="https://wa.me/6283854965145" class="wa-link">
+                    <i class="fab fa-whatsapp"></i> +62 838-5496-5145
+                </a>
+            </div>
+            <p>Support All Protocol: SSH/VMESS/VLESS/TROJAN</p>
+        </header>
+
+        <div class="product-section">
+            <h2>Ready Config Premium</h2>
+            
+            <h3>Server SG Do 🇸🇬</h3>
+            <table class="price-table">
+                <tr>
+                    <th>Masa Aktif</th>
+                    <th>Perangkat</th>
+                    <th>Harga</th>
+                    <th>Order</th>
+                </tr>
+                <tr>
+                    <td>7 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 2.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '7 Hari', '1 HP', '2000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 4.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '7 Hari', '2 HP', '4000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 4.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '15 Hari', '1 HP', '4000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 7.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '15 Hari', '2 HP', '7000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 5.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '20 Hari', '1 HP', '5000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 8.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '20 Hari', '2 HP', '8000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>30 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 7.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '30 Hari', '1 HP', '7000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>30 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 12.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server SG Do', '30 Hari', '2 HP', '12000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Server ID BIZNET 🇲🇨</h3>
+            <table class="price-table">
+                <tr>
+                    <th>Masa Aktif</th>
+                    <th>Perangkat</th>
+                    <th>Harga</th>
+                    <th>Order</th>
+                </tr>
+                <tr>
+                    <td>7 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 3.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '7 Hari', '1 HP', '3000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 5.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '7 Hari', '2 HP', '5000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 6.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '15 Hari', '1 HP', '6000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 8.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '15 Hari', '2 HP', '8000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 8.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '20 Hari', '1 HP', '8000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 9.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '20 Hari', '2 HP', '9000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>30 Hari</td>
+                    <td>1 HP</td>
+                    <td>Rp 10.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '30 Hari', '1 HP', '10000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>30 Hari</td>
+                    <td>2 HP</td>
+                    <td>Rp 15.000</td>
+                    <td>
+                        <button class="order-btn" onclick="orderProduct('Server ID BIZNET', '30 Hari', '2 HP', '15000')">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="highlight">
+                <h3>KELEBIHAN MEMBELI VPN PREMIUM:</h3>
+                <ul class="benefits">
+                    <li>Bisa Trial Terlebih Dahulu</li>
+                    <li>Server Jarang Terjadi Eror</li>
+                    <li>Support Vc/Tlpn</li>
+                    <li>Speed stabil</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-section">
+            <h2>READY DOR KUOTA XL UNLIMITED TURBO</h2>
+            <p><strong>Ready XL Unlimited Turbo Vidio 33.000 + config 38.000, limit: 150GB++</strong></p>
+            
+            <div class="cta">
+                <a href="https://wa.me/6283854965145?text=Halo,%20saya%20mau%20order%20Kuota%20XL%20Unlimited%20Turbo" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Order Kuota XL Unlimited Turbo
+                </a>
+            </div>
+        </div>
+
+        <div class="product-section">
+            <h2>Metode Pembayaran</h2>
+            <div class="payment-methods">
+                <div class="payment-method">DANA</div>
+                <div class="payment-method">GOPAY</div>
+                <div class="payment-method">QRIS ALL PAYMENT</div>
+            </div>
+            
+            <div class="cta">
+                <a href="https://wa.me/6283854965145" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Hubungi Kami via WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 RIFGANSS Store - Tokoh Murah & Berkualitas
+    </footer>
+
+    <script>
+        function orderProduct(server, duration, device, price) {
+            const message = `Halo RIFGANSS Store, saya mau order:
+            
+- Server: ${server}
+- Masa Aktif: ${duration}
+- Perangkat: ${device}
+- Harga: Rp ${price}
+
+Bisa diproses sekarang?`;
+            
+            const whatsappUrl = `https://wa.me/6283854965145?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+        </html>        .product-section {
             background-color: white;
             border-radius: 5px;
             padding: 20px;
