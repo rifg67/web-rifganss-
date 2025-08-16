@@ -3,265 +3,565 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RIFGANSS Store - VPN Premium & Kuota XL Unlimited</title>
+    <title>RIFGANSS Store - VPN & Kuota Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
     <style>
+        /* Dragon Theme Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'MedievalSharp', cursive;
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background: #0a0a0a url('https://images.unsplash.com/photo-1518562180175-34a163b1a9a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+            background-size: cover;
             color: #fff;
             min-height: 100vh;
             padding: 20px;
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
         }
         
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 0, 0, 0.7);
+            z-index: -1;
+        }
+        
+        /* Dragon Scale Pattern */
+        .dragon-scale {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255,215,0,0.03) 1%, transparent 2%),
+                radial-gradient(circle at 90% 80%, rgba(255,215,0,0.03) 1%, transparent 2%);
+            background-size: 100px 100px;
+            z-index: -1;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        /* Dragon Fire Elements */
+        .dragon-fire {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,100,0,0.2) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(255,50,0,0.2) 0%, transparent 25%);
+            z-index: -1;
+            opacity: 0.5;
+            animation: fireFlicker 3s infinite alternate;
+        }
+        
+        @keyframes fireFlicker {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Flying Dragon Animation */
+        .flying-dragon {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,50 Q30,30 50,20 Q70,30 80,50 Q70,70 50,80 Q30,70 20,50 Z" fill="none" stroke="%23d4af37" stroke-width="2"/><circle cx="35" cy="40" r="3" fill="%23ff0000"/><circle cx="65" cy="40" r="3" fill="%23ff0000"/><path d="M40,65 Q50,75 60,65" stroke="%23ff0000" fill="none" stroke-width="2"/></svg>') center/contain no-repeat;
+            animation: dragonFlight 20s linear infinite;
+            z-index: -1;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        @keyframes dragonFlight {
+            0% { transform: translate(-100px, 100px); }
+            25% { transform: translate(calc(100vw - 100px), 50px); }
+            50% { transform: translate(calc(100vw - 50px), calc(100vh - 100px)); }
+            75% { transform: translate(50px, calc(100vh - 150px)); }
+            100% { transform: translate(-100px, 100px); }
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
         }
         
         header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 25px;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 30px;
             text-align: center;
             border-radius: 15px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 2px solid #ffcc00;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            border: 3px solid #d4af37;
             position: relative;
             overflow: hidden;
+            animation: borderGlow 3s infinite alternate;
+        }
+        
+        @keyframes borderGlow {
+            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+            100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8); }
+        }
+        
+        .dragon-icon {
+            font-size: 60px;
+            color: #d4af37;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+            animation: dragonFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes dragonFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
         }
         
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #ffcc00;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+            font-size: 2.8em;
+            margin: 0;
+            color: #d4af37;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+            letter-spacing: 2px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60000; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #ff4d4d, 0 0 30px #ff4d4d; }
         }
         
         .tagline {
             font-style: italic;
             margin: 15px 0;
-            color: #ffcc00;
-            font-size: 1.1em;
+            color: #d4af37;
+            font-size: 1.3em;
+            text-shadow: 0 0 5px rgba(0,0,0,0.8);
         }
         
         .contact-info {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(212, 175, 55, 0.2);
             padding: 15px;
             border-radius: 10px;
             margin-top: 15px;
             display: inline-block;
+            border: 1px solid #d4af37;
         }
         
         .wa-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             color: #25D366;
             font-weight: bold;
             text-decoration: none;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 12px 25px;
             border-radius: 50px;
             transition: all 0.3s;
             margin-top: 10px;
+            border: 1px solid #25D366;
+            font-size: 1.1em;
         }
         
         .wa-link:hover {
             background: #25D366;
             color: white;
             transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
         }
         
         .product-section {
             background: rgba(0, 0, 0, 0.7);
             border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            border: 1px solid #ff9900;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+            border: 2px solid #d4af37;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-section::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0,20 Q25,0 50,20 T100,20" fill="rgba(212,175,55,0.5)"/></svg>') center/cover no-repeat;
         }
         
         h2 {
-            color: #ffcc00;
-            border-bottom: 2px solid #ffcc00;
+            color: #d4af37;
+            border-bottom: 2px solid #d4af37;
             padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            text-align: center;
-        }
-        
-        h3 {
-            color: #4d9eff;
-            margin: 25px 0 15px;
+            margin-bottom: 25px;
+            font-size: 2em;
             text-align: center;
             position: relative;
+            letter-spacing: 1px;
         }
         
-        h3::before, h3::after {
-            content: "•";
-            margin: 0 10px;
-            color: #ff9900;
+        h2::after {
+            content: "⚔️";
+            position: absolute;
+            right: 10px;
+            animation: swordSwing 2s infinite alternate;
+        }
+        
+        @keyframes swordSwing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(20deg); }
         }
         
         .price-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 15px 0;
-            background: rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+            background: rgba(0, 0, 0, 0.6);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border: 1px solid #d4af37;
         }
         
         .price-table th, .price-table td {
-            border: 1px solid #ffcc00;
-            padding: 12px;
+            border: 1px solid #d4af37;
+            padding: 15px;
             text-align: center;
         }
         
         .price-table th {
-            background-color: rgba(255, 204, 0, 0.2);
-            color: #ffcc00;
+            background-color: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
             font-weight: bold;
+            font-size: 1.1em;
+            letter-spacing: 1px;
         }
         
         .price-table tr:nth-child(even) {
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .price-table tr:hover {
+            background-color: rgba(212, 175, 55, 0.1);
         }
         
         .order-btn {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             border: none;
-            padding: 8px 15px;
+            padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1em;
+            border: 1px solid #25D366;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
         }
         
         .order-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            background: linear-gradient(135deg, #128C7E, #25D366);
         }
         
-        .highlight {
-            background: linear-gradient(to right, rgba(179, 0, 0, 0.5), rgba(77, 0, 0, 0.5));
-            padding: 20px;
+        .package-card {
+            background: rgba(0, 0, 0, 0.6);
             border-radius: 10px;
-            margin: 20px 0;
-            border: 1px solid #ff3333;
-        }
-        
-        .benefits {
-            list-style-type: none;
-            padding: 0;
-            margin: 15px 0;
-        }
-        
-        .benefits li {
-            padding: 10px 0;
+            padding: 25px;
+            margin: 30px 0;
+            border: 2px solid #4d79ff;
             position: relative;
-            padding-left: 30px;
+            overflow: hidden;
+        }
+        
+        .dragon-package {
+            border-color: #ff6600;
+        }
+        
+        .dragon-package::before {
+            content: "🐉";
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2em;
+            opacity: 0.3;
+            animation: dragonFloat 4s ease-in-out infinite;
+        }
+        
+        .package-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradieent(to right, #4d79ff, #1a53ff);
+        }
+        
+        .dragon-package::before {
+            background: linear-gradient(to right, #ff6600, #ff3300);
+        }
+        
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .package-title {
+            font-size: 1.8em;
+            color: #4d9eff;
+        }
+        
+        .dragon-package .package-title {
+            color: #ff9900;
+        }
+        
+        .package-badge {
+            background: linear-gradient(135deg, #4d79ff, #1a53ff);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .dragon-badge {
+            background: linear-gradient(135deg, #ff3300, #ff9900);
+        }
+        
+        .package-features {
+            margin: 20px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 12px 0;
             font-size: 1.1em;
         }
         
-        .benefits li::before {
-            content: "✓";
+        .feature-item i {
             color: #4dff4d;
-            position: absolute;
-            left: 0;
-            font-size: 1.3em;
-            text-shadow: 0 0 5px #00ff00;
+            font-size: 1.2em;
         }
         
-        .payment-methods {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-            flex-wrap: wrap;
+        .dragon-package .feature-item i {
+            color: #ffcc00;
         }
         
-        .payment-method {
-            background: linear-gradient(135deg, #4d79ff, #1a53ff);
-            padding: 12px 20px;
-            border-radius: 5px;
+        .package-price {
+            font-size: 1.8em;
             font-weight: bold;
-            min-width: 120px;
+            color: #ffcc00;
             text-align: center;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+            margin: 25px 0;
+            text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
         }
         
         .cta {
             text-align: center;
             margin: 30px 0;
+            position: relative;
         }
         
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 18px 35px;
             border-radius: 50px;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.3em;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            border: 1px solid #25D366;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .dragon-btn {
+            background: linear-gradient(135deg, #ff6600, #ff3300);
+            border: 1px solid #ff9900;
+        }
+        
+        .whatsapp-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #128C7E, #25D366);
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        .dragon-btn::before {
+            background: linear-gradient(135deg, #ff3300, #ff6600);
         }
         
         .whatsapp-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+        }
+        
+        .whatsapp-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            background: linear-gradient(135deg, #4d79ff, #1a53ff);
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            min-width: 150px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            transition: all 0.3s;
+            border: 1px solid #4d79ff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .payment-method::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.3));
+            transform: rotate(30deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        
+        .payment-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+        }
+        
+        .payment-method:hover::before {
+            opacity: 1;
+            top: 0;
+            left: 0;
         }
         
         footer {
             text-align: center;
-            margin-top: 30px;
-            padding: 20px;
+            margin-top: 40px;
+            padding: 25px;
             background: rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
-            color: #ffcc00;
+            border-radius: 15px;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            position: relative;
         }
         
+        footer::before {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0,0 Q25,20 50,0 T100,0" fill="rgba(212,175,55,0.5)"/></svg>') center/cover no-repeat;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .price-table {
-                font-size: 0.9em;
+            .container {
+                padding: 15px;
             }
             
-            .price-table th, .price-table td {
-                padding: 8px 5px;
+            header {
+                padding: 20px;
             }
             
             h1 {
-                font-size: 2em;
+                font-size: 2.2em;
+            }
+            
+            .dragon-icon {
+                font-size: 50px;
+            }
+            
+            .price-table {
+                font-size: 0.9em;
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .price-table th, .price-table td {
+                padding: 10px 5px;
+            }
+            
+            .package-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .whatsapp-btn {
+                padding: 15px 25px;
+                font-size: 1.1em;
+            }
+            
+            .flying-dragon {
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="dragon-scale"></div>
+    <div class="dragon-fire"></div>
+    <div class="flying-dragon"></div>
+    
     <div class="container">
         <header>
+            <div class="dragon-icon">🐉</div>
             <h1>RIFGANSS STORE</h1>
             <div class="tagline">Murah & Berkualitas - Bergaransi Full 30 Hari</div>
             
@@ -277,119 +577,60 @@
         <div class="product-section">
             <h2>Ready Config Premium</h2>
             
-            <h3>Server SG Do 🇸🇬</h3>
             <table class="price-table">
                 <tr>
                     <th>Masa Aktif</th>
                     <th>Perangkat</th>
-                    <th>Harga</th>
-                    <th>Order</th>
+                    <th>Server SG Do 🇸🇬</th>
+                    <th>Server ID BIZNET 🇲🇨</th>
                 </tr>
                 <tr>
                     <td>7 Hari</td>
                     <td>1 HP</td>
                     <td>Rp 2.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server SG Do', '7 Hari', '1 HP', '2000')">Order</button></td>
+                    <td>Rp 3.000</td>
                 </tr>
                 <tr>
                     <td>7 Hari</td>
                     <td>2 HP</td>
                     <td>Rp 4.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server SG Do', '7 Hari', '2 HP', '4000')">Order</button></td>
+                    <td>Rp 5.000</td>
                 </tr>
                 <tr>
                     <td>15 Hari</td>
                     <td>1 HP</td>
                     <td>Rp 4.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server SG Do', '15 Hari', '1 HP', '4000')">Order</button></td>
+                    <td>Rp 7.000</td>
                 </tr>
                 <tr>
                     <td>15 Hari</td>
                     <td>2 HP</td>
                     <td>Rp 7.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server SG Do', '15 Hari', '2 HP', '7000')">Order</button></td>
+                    <td>Rp 9.000</td>
                 </tr>
                 <tr>
                     <td>20 Hari</td>
                     <td>1 HP</td>
                     <td>Rp 5.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server SG Do', '20 Hari', '1 HP', '5000')">Order</button></td>
+                    <td>Rp 7.000</td>
                 </tr>
                 <tr>
                     <td>20 Hari</td>
                     <td>2 HP</td>
                     <td>Rp 8.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server SG Do', '20 Hari', '2 HP', '8000')">Order</button></td>
+                    <td>Rp 11.000</td>
                 </tr>
                 <tr>
                     <td>30 Hari</td>
                     <td>1 HP</td>
                     <td>Rp 7.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server SG Do', '30 Hari', '1 HP', '7000')">Order</button></td>
+                    <td>Rp 10.000</td>
                 </tr>
                 <tr>
                     <td>30 Hari</td>
                     <td>2 HP</td>
                     <td>Rp 12.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server SG Do', '30 Hari', '2 HP', '12000')">Order</button></td>
-                </tr>
-            </table>
-
-            <h3>Server ID BIZNET 🇲🇨</h3>
-            <table class="price-table">
-                <tr>
-                    <th>Masa Aktif</th>
-                    <th>Perangkat</th>
-                    <th>Harga</th>
-                    <th>Order</th>
-                </tr>
-                <tr>
-                    <td>7 Hari</td>
-                    <td>1 HP</td>
-                    <td>Rp 3.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server ID BIZNET', '7 Hari', '1 HP', '3000')">Order</button></td>
-                </tr>
-                <tr>
-                    <td>7 Hari</td>
-                    <td>2 HP</td>
-                    <td>Rp 5.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server ID BIZNET', '7 Hari', '2 HP', '5000')">Order</button></td>
-                </tr>
-                <tr>
-                    <td>15 Hari</td>
-                    <td>1 HP</td>
-                    <td>Rp 6.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server ID BIZNET', '15 Hari', '1 HP', '6000')">Order</button></td>
-                </tr>
-                <tr>
-                    <td>15 Hari</td>
-                    <td>2 HP</td>
-                    <td>Rp 8.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server ID BIZNET', '15 Hari', '2 HP', '8000')">Order</button></td>
-                </tr>
-                <tr>
-                    <td>20 Hari</td>
-                    <td>1 HP</td>
-                    <td>Rp 8.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server ID BIZNET', '20 Hari', '1 HP', '8000')">Order</button></td>
-                </tr>
-                <tr>
-                    <td>20 Hari</td>
-                    <td>2 HP</td>
-                    <td>Rp 9.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server ID BIZNET', '20 Hari', '2 HP', '9000')">Order</button></td>
-                </tr>
-                <tr>
-                    <td>30 Hari</td>
-                    <td>1 HP</td>
-                    <td>Rp 10.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server ID BIZNET', '30 Hari', '1 HP', '10000')">Order</button></td>
-                </tr>
-                <tr>
-                    <td>30 Hari</td>
-                    <td>2 HP</td>
-                    <td>Rp 15.000</td>
-                    <td><button class="order-btn" onclick="orderProduct('Server ID BIZNET', '30 Hari', '2 HP', '15000')">Order</button></td>
+                    <td>Rp 13.000</td>
                 </tr>
             </table>
 
@@ -405,13 +646,76 @@
         </div>
 
         <div class="product-section">
-            <h2>READY DOR KUOTA XL UNLIMITED TURBO</h2>
-            <p><strong>Ready XL Unlimited Turbo Vidio 33.000 + config 38.000, limit: 150GB++</strong></p>
+            <h2>Paket Kuota Unlimited Turbo</h2>
             
-            <div class="cta">
-                <a href="https://wa.me/6283854965145?text=Halo,%20saya%20mau%20order%20Kuota%20XL%20Unlimited%20Turbo" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> Order Kuota XL Unlimited Turbo
-                </a>
+            <!-- Paket XL Unlimited Turbo -->
+            <div class="package-card">
+                <div class="package-header">
+                    <div class="package-title">READY XL UNLIMITED TURBO VIDIO</div>
+                    <div class="package-badge">POPULER</div>
+                </div>
+                
+                <div class="package-features">
+                    <div class="feature-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>Limit: 150GB++</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-server"></i>
+                        <span>bebas request aplikasi inject</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-rocket"></i>
+                        <span>Speed: High Performance</span>
+                    </div>
+                </div>
+                
+                <div class="package-price">Rp 33.000 + Config Rp 38.000</div>
+                
+                <div class="cta">
+                    <a href="https://wa.me/6283854965145?text=Halo,%20saya%20mau%20order%20Kuota%20XL%20Unlimited%20Turbo" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Order Sekarang
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Paket Baru: Unlimited Turbo Iflix dengan tema naga -->
+            <div class="package-card dragon-package">
+                <div class="package-header">
+                    <div class="package-title">UNLIMITED TURBO IFLIX (Jabar-Sumatra)</div>
+                    <div class="package-badge dragon-badge">BARU! 🐉</div>
+                </div>
+                
+                <div class="package-features">
+                    <div class="feature-item">
+                        <i class="fas fa-fire"></i>
+                        <span>Lebih joss dari XL Vidio</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-dragon"></i>
+                        <span>Koneksi super cepat </span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Cakupan: Jawa Barat dan Sumatra</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Speed: Ultra High (Prioritas)</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-infinity"></i>
+                        <span>Unlimited dengan kualitas premium</span>
+                    </div>
+                </div>
+                
+                <div class="package-price">Rp 33.000 + Config Rp 38.000</div>
+                
+                <div class="cta">
+                    <a href="https://wa.me/6283854965145?text=Halo,%20saya%20mau%20order%20Unlimited%20Turbo%20Iflix%20(Jabar-Sumatra)" class="whatsapp-btn dragon-btn">
+                        <i class="fab fa-whatsapp"></i> Order Paket Iflix
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -421,11 +725,18 @@
                 <div class="payment-method">DANA</div>
                 <div class="payment-method">GOPAY</div>
                 <div class="payment-method">QRIS ALL PAYMENT</div>
+                <div class="payment-method">BANK TRANSFER</div>
+            </div>
+            
+            <div class="cta">
+                <a href="https://wa.me/6283854965145" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Hubungi Kami via WhatsApp
+                </a>
             </div>
         </div>
-
+        
         <footer>
-            © 2023 RIFGANSS Store - Tokoh Murah & Berkualitas
+            © 2025 RIFGANSS Store - Toko Murah & Berkualitas
         </footer>
     </div>
 
@@ -443,6 +754,19 @@ Bisa diproses sekarang?`;
             const whatsappUrl = `https://wa.me/6283854965145?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
+        
+        // Dragon interactivity
+        document.addEventListener('mousemove', (e) => {
+            const dragon = document.querySelector('.flying-dragon');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            // Dragon follows mouse slightly
+            dragon.style.transform = `translate(
+                calc(${x * 90}vw - 100px), 
+                calc(${y * 90}vh - 100px)
+            )`;
+        });
     </script>
 </body>
-  </html>
+</html>
